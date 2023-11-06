@@ -15,12 +15,22 @@
     <script>
         var data;
 
+        // " ~ " significa que o array será iterado e o item será o valor atual do array e index será o índice atual do array
+        // " = " significa que o valor será inserido diretamente na página
+        // " it " é o objeto que contém os dados que serão inseridos no template
+        // " it.itens " é o array que será iterado
+        // " it.titulo " é o valor que será inserido diretamente na página
+        // " it.descricao " é o valor que será inserido diretamente na página
+        // " item " é o valor atual do array
+        // " index " é o índice atual do array
+        // " {{~it.itens :item:index}} " é o início do loop
+        // " {{~}} " é o fim do loop
         var template = `
                 <div>
                 <h1>{{=it.titulo}}</h1>
                     <p>{{=it.descricao}}</p>
                     <ul>
-                        {{~it.itens :item:index}} <!-- " ~ " significa que o array será iterado e o item será o valor atual do array e index será o índice atual do array -->
+                        {{~it.itens :item:index}}
                             <li>{{=item}}</li>
                         {{~}}
                     </ul>
