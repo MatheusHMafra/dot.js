@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>dot.js</title>
+</head>
+
+<body>
+    <!--
+        Exemplo de uso do doT.js
+    -->
+    <div id="main"></div>
+    <script type="text/javascript" src="doT.min.js"></script>
+    <script>
+        var data;
+
+        var template = `
+                <div>
+                <h1>{{=it.titulo}}</h1>
+                    <p>{{=it.descricao}}</p>
+                    <ul>
+                        {{~it.itens :item:index}} <!-- " ~ " significa que o array será iterado e o item será o valor atual do array e index será o índice atual do array -->
+                            <li>{{=item}}</li>
+                        {{~}}
+                    </ul>
+                </div>
+                `;
+        var renderizado = doT.template(template); // Compila o template
+
+        var xhr = new XMLHttpRequest(); // Cria o pedido HTTP
+        xhr.open("GET", "data.json", true); // Configura o pedido HTTP para carregar o arquivo JSON
+
+        xhr.onload = function () { // Quando o pedido for carregado
+            if (xhr.status >= 200 && xhr.status < 300) { // Se o status for entre 200 e 299
+                // O pedido foi bem-sucedido
+                data = JSON.parse(xhr.responseText); // Armazena o arquivo JSON na variável data
+                var output = renderizado(data); // Renderiza o template com os dados do arquivo JSON
+
+                document.getElementById("main").innerHTML = output; // Insere o template renderizado na página
+            } else {
+                // Lidar com erros, se necessário
+                console.log("Erro ao carregar o arquivo JSON");
+            }
+        };
+
+        xhr.send(); // Envia o pedido
+    </script>
+</body>
+
+</html>

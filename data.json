@@ -1,0 +1,9 @@
+{
+    "titulo": "Lista de Compras",
+    "descricao": "Lista de compras do mês de janeiro",
+    "itens": [
+        "Maçãs",
+        "Bananas",
+        "Laranjas"
+    ]
+}
