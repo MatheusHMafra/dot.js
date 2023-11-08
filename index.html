@@ -27,11 +27,11 @@
         var data; // Variável que armazenará o arquivo JSON
         var template = `
                 <div>
-                <h1>{{=it.titulo}}</h1> // Insere o valor que está no json com o nome título
-                    <p>{{=it.descricao}}</p> // Insere o valor que está no json com o nome descrição
+                <h1>{{=it.titulo}}</h1>
+                    <p>{{=it.descricao}}</p>
                     <ul>
-                        {{~it.itens :item:index}} // Itera o array que está no json com o nome itens
-                            <li>{{=item}}</li> // E mostra o valor atual do array
+                        {{~it.itens :item:index}}
+                            <li>{{=item}}</li>
                         {{~}}
                     </ul>
                 </div>
