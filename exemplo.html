@@ -7,16 +7,17 @@
     <title>dot.js</title>
 </head>
 
-<body>
+<body style="display: flex; flex-direction: column; align-items: center;">
     <!--
         Exemplo de uso do doT.js
     -->
     <div>
         <label for="template">Template:</label><br>
-        <textarea name="template" cols="30" rows="10"></textarea>
+        <textarea name="template" cols="30" rows="10" style="width: 250px; height: 250px;"></textarea>
         <br>
         <label for="data">Dados:</label><br>
-        <textarea name="data" cols="30" rows="10"></textarea>
+        <textarea name="data" cols="30" rows="10" style="width: 250px; height: 250px;"></textarea>
+        <br>
         <button>
             Executar
         </button>
@@ -31,13 +32,10 @@
             var template = document.querySelector('[name="template"]').value;
             var data = document.querySelector('[name="data"]').value; // Variável que armazenará o arquivo JSON
 
-            console.log(template);
-            
-            console.log(data);
             var renderizado = doT.template(template); // Compila o template
-            console.log(renderizado);
-            var output = renderizado(data); // Renderiza o template com os dados do arquivo JSON
-            console.log(output);
+
+            var output = renderizado(JSON.parse(data)); // Renderiza o template com os dados do arquivo JSON
+
             document.getElementById("main").innerHTML = output; // Insere o template renderizado na página
         });
     </script>
