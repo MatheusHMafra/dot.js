@@ -12,9 +12,11 @@
         Exemplo de uso do doT.js
     -->
     <div>
-        <textarea name="template" id="template" cols="30" rows="10">Template:</textarea>
+        <label for="template">Template:</label>
+        <textarea name="template" cols="30" rows="10"></textarea>
         <br>
-        <textarea name="data" id="data" cols="30" rows="10">Dados:</textarea>
+        <label for="data">Dados:</label>
+        <textarea name="data" cols="30" rows="10"></textarea>
         <button>
             Executar
         </button>
@@ -26,8 +28,8 @@
     <script type="text/javascript" src="doT.min.js"></script>
     <script>
         document.querySelector("div button").addEventListener("click", () => {
-            var template = document.querySelector('[name="template"]')
-            var data = document.querySelector('[name="data"]') // Variável que armazenará o arquivo JSON
+            var template = document.querySelector('[name="template"]').value
+            var data = document.querySelector('[name="data"]').value // Variável que armazenará o arquivo JSON
 
             var renderizado = doT.template(template); // Compila o template
 
