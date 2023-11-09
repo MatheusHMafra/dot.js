@@ -13,11 +13,13 @@
     -->
     <div>
         <textarea name="template" id="template" cols="30" rows="10">Template:</textarea>
+        <br>
         <textarea name="data" id="data" cols="30" rows="10">Dados:</textarea>
         <button>
             Executar
         </button>
     </div>
+    <br>
     <div id="main"></div>
 
 
@@ -26,7 +28,7 @@
         document.querySelector("div button").addEventListener("click", () => {
             var template = document.querySelector('[name="template"]')
             var data = document.querySelector('[name="data"]') // Variável que armazenará o arquivo JSON
-            
+
             var renderizado = doT.template(template); // Compila o template
 
             var output = renderizado(data); // Renderiza o template com os dados do arquivo JSON
