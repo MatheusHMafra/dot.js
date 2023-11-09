@@ -28,13 +28,16 @@
     <script type="text/javascript" src="doT.min.js"></script>
     <script>
         document.querySelector("div button").addEventListener("click", () => {
-            var template = document.querySelector('[name="template"]').value
-            var data = document.querySelector('[name="data"]').value // Variável que armazenará o arquivo JSON
+            var template = document.querySelector('[name="template"]').value;
+            var data = document.querySelector('[name="data"]').value; // Variável que armazenará o arquivo JSON
 
+            console.log(template);
+            
+            console.log(data);
             var renderizado = doT.template(template); // Compila o template
-
+            console.log(renderizado);
             var output = renderizado(data); // Renderiza o template com os dados do arquivo JSON
-
+            console.log(output);
             document.getElementById("main").innerHTML = output; // Insere o template renderizado na página
         });
     </script>
