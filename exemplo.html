@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dot.js</title>
+</head>
+
+<body>
+    <!--
+        Exemplo de uso do doT.js
+    -->
+    <div>
+        <textarea name="template" id="template" cols="30" rows="10">Template:</textarea>
+        <textarea name="data" id="data" cols="30" rows="10">Dados:</textarea>
+        <button>
+            Executar
+        </button>
+    </div>
+    <div id="main"></div>
+
+
+    <script type="text/javascript" src="doT.min.js"></script>
+    <script>
+        document.querySelector("div button").addEventListener("click", () => {
+            var template = document.querySelector('[name="template"]')
+            var data = document.querySelector('[name="data"]') // Variável que armazenará o arquivo JSON
+            
+            var renderizado = doT.template(template); // Compila o template
+
+            var output = renderizado(data); // Renderiza o template com os dados do arquivo JSON
+
+            document.getElementById("main").innerHTML = output; // Insere o template renderizado na página
+        });
+    </script>
+</body>
+
+</html>
